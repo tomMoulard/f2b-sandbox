@@ -1,7 +1,9 @@
 name: Release
 
 on:
-  release:
+  push:
+    tags:
+      - 'v*'
 
 env:
   GO_VERSION: '1.21'
@@ -56,9 +58,12 @@ jobs:
       - name: Build WASM Plugin
         run: make -B fail2ban.wasm
 
+      - name: Build WASM Plugin
+        run: pwd && find
+
       - name: Upload WASM Plugin asset to release
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            fail2ban.wasm
+            go/src/github.com/${{ github.repository }}/fail2ban.wasm
 
