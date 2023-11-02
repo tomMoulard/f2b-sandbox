@@ -72,5 +72,5 @@ jobs:
           repository: tomMoulard/f2b-sandbox
           generate_release_notes: true
           files: |
-            fail2ban.${{ github.ref_name }}.wasm
+            fail2ban.go
 
