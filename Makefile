@@ -15,6 +15,10 @@ test:
 vendor:
 	go mod vendor -v
 
+fail2ban.wasm: vendor
+	# https://tinygo.org/getting-started/install/
+	tinygo build -o fail2ban.wasm -scheduler=none --no-debug -target=wasi ./...
+
 .PHONY: yaegi_test
 YAEGI_TEST_ARGS ?= -v
 yaegi_test: vendor
