@@ -56,7 +56,7 @@ jobs:
 
       - name: Build WASM Plugin
         # run: make -B fail2ban.wasm # FIXME
-        run: touch fail2ban.wasm
+        run: date > fail2ban.wasm
 
       - name: DEBUG # FIXME: remove
         run: pwd && find
