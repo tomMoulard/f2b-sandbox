@@ -59,7 +59,7 @@ jobs:
         # run: make -B fail2ban.wasm # FIXME
         run: touch fail2ban.wasm
 
-      - name: DEBUG
+      - name: DEBUG # FIXME: remove
         run: pwd && find
 
       - name: Build archive
@@ -69,8 +69,8 @@ jobs:
       - name: Upload WASM Plugin asset to release
         uses: softprops/action-gh-release@v1
         with:
-          # token: ${{ secrets.RELEASE_GITHUB_TOKEN }}
+          token: ${{ secrets.RELEASE_GITHUB_TOKEN }}
           generate_release_notes: true
           files: |
-            go/src/github.com/${{ github.repository }}/fail2ban.go
+            ${{ github.workspace }}/go/src/github.com/${{ github.repository }}/fail2ban.go
 
